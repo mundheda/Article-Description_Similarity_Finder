@@ -92,7 +92,7 @@ def topic_generator(txt,j_big):
     for j in [j_big]:
         sum_list = []
         for k in range(abstract.shape[0]):   #iterating over each abstract data
-#             print (j[k][0])
+
             new_doc = j[k][0]    
             new_doc = prepare_text_for_lda(new_doc)
             new_doc_bow = dictionary.doc2bow(new_doc)
@@ -103,10 +103,10 @@ def topic_generator(txt,j_big):
             list_mod_abs.append(list_mod)
             sum = 0
             for i in range(len(list_mod)):
-                #print(">>>>>>>>>>>>><<<<<<<<<<<<<<<")
+                
                 #print(list_mod[i][1] * list_mod_txt[i][1])
                 sum += list_mod[i][1] * list_mod_txt[i][1]
-            #print("iuiuiuiuiuiu")
+            
             #print(sum)
             sum_list.append(sum)
       
@@ -117,26 +117,12 @@ def topic_generator(txt,j_big):
             sum_list[i] = (sum_list[i]) / (max_list)
             #sum_list[i] = (sum_list[i] - min_list) / (max_list - min_list)
             
-         #print(">>>>>>>>>>>>SUM LIST<<<<<<<<<<<<")
         return(sum_list) 
 
         final_sum_array.append(sum_list)
-        
-        # print("max of list : ")
-        # print(max(sum_list))
-        # print("min")
-        # print(min(sum_list))
-        
-        # print("")
             
-        # print("softmax list><><><><><><><><><><><><><>")
-        # print(softmax(sum_list))
 
 
-        
-
-        
-    # print(list_mod_abs)
 def bal_zero(list_mod,no_of_topics):
     temp_list=[]
     for i in list_mod:
@@ -147,12 +133,10 @@ def bal_zero(list_mod,no_of_topics):
     return list_mod 
 
 
-# import numpy as np
-
-# def softmax(x):
-#     """Compute softmax values for each sets of scores in x."""
-#     e_x = np.exp(x - np.max(x))
-#     return e_x / e_x.sum()
+def softmax(x):
+    """Compute softmax values for each sets of scores in x."""
+    e_x = np.exp(x - np.max(x))
+    return e_x / e_x.sum()
 
 #-----------------------------main---------------------------------------
 
@@ -179,6 +163,7 @@ en_stop = set(nltk.corpus.stopwords.words('english')) #this is for filtering out
 
 abs_val = abstract.values
 text_val = text.values
+
 #Here we generate the final 2-D matrix iterating over each text value 
 
 L = []
