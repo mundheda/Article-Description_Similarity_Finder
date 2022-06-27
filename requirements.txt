@@ -103,7 +103,7 @@ pyxdg==0.25
 PyYAML==3.13
 pyzmq==18.1.0
 readline==6.2.4.1
-reportlab==3.5.18
+reportlab==3.5.55
 requests==2.21.0
 requests-unixsocket==0.1.5
 s3transfer==0.2.1
